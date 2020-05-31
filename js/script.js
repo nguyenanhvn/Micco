@@ -269,7 +269,7 @@ jQuery(document).ready(function() {
 		    loop:true,
 		    margin:0,
 		    autoplayTimeout:5000,
-		    nav: false,
+		    nav: true,
 		    rewind: true,
 		    items:1,
 		    dots: true,
@@ -282,14 +282,7 @@ jQuery(document).ready(function() {
 		  	dotsSpeed: 700,
 		  	dragEndSpeed: 700,
 	        autoplay: true,
-			responsive:{
-				0:{
-					mouseDrag: false,
-				    touchDrag: false,
-				},
-		        767:{
-		        }
-		    },
+	        navText: ['<div class="tw-prev"></div>','<div class="tw-next"></div>'],
 		});
 
 	  	// add animate.css class(es) to the elements to be animated

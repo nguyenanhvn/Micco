@@ -517,6 +517,7 @@
 		position: relative;
 		.banner__slider{
 			height: calc(100vh - 101px);
+			position: relative;
 			.item{
 				color: #fff;
 				background: no-repeat center /cover;
@@ -539,6 +540,9 @@
 					display: table-cell;
 					vertical-align: middle;
 					height: calc(100vh - 101px - 180px);
+					position: relative;
+					z-index: 99;
+					padding-left: 80px;
 					.item__box__center{
 						float: left;
 						max-width: 600px;
@@ -555,6 +559,62 @@
 				.text{
 					font-size: 18px;
 					line-height: 27px;
+				}
+			}
+			.owl-nav{
+				.tw-prev,
+				.tw-next{
+					width: 40px;
+					height: 60px;
+					background: #e0e0e0;					
+					position: absolute;
+					top: 0;				
+					bottom: 180px;
+					left: 0;
+					margin: auto;
+					@include transition;
+					&:hover{
+						background: $color;
+						&:after{
+							opacity: 1;
+						}
+					}
+					&:before{
+						content: '';
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						margin: auto;
+						background: url(../images/arrow-prev-g.png) no-repeat center /cover;
+						width: 8px;
+						height: 13px;
+					}
+					&:after{
+						content: '';
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						background: url(../images/arrow-news-prev.png) no-repeat center /cover;
+						width: 8px;
+						margin: auto;
+						height: 13px;
+						opacity: 0;
+						z-index: 9;
+					}
+				}
+				.tw-next{
+					left: auto;
+					right: 0;
+					&:before{
+						background: url(../images/arrow-next-g.png) no-repeat center /cover;
+					}
+					&:after{
+						background: url(../images/arrow-news-next.png) no-repeat center /cover;
+					}
 				}
 			}
 		}
@@ -776,6 +836,9 @@
 		section.content-banner .banner__tabs{
 			display: none;
 		}
+		section.content-banner .banner__slider .owl-nav .tw-prev, section.content-banner .banner__slider .owl-nav .tw-next{
+			display: none;
+		}
 		section.content-banner{
 			height: 650px;
 			.banner__slider{
@@ -790,6 +853,7 @@
 						height: 650px;
 						position: relative;
 						z-index: 99;
+						padding-left: 0;
 					}
 					h3{
 						font-size: 30px;
