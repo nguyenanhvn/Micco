@@ -1,11 +1,14 @@
 jQuery(document).ready(function() {
 	var width_device = jQuery(window).width();
 	jQuery('.dotdotdot').dotdotdot();
+	caculationHeight();
 	setTimeout(function(){
 		jQuery('.dotdotdot').dotdotdot();
 	}, 100);
     jQuery(window).resize(function(event) {
+		caculationHeight();
     	setTimeout(function(){    
+			caculationHeight();
     		jQuery('.dotdotdot').dotdotdot();
 		}, 100);
     });
@@ -30,6 +33,16 @@ jQuery(document).ready(function() {
 	jQuery(window).scroll(function(){
 		header();
 	});
+	
+	if(jQuery('.content-tabs_box').length > 0){
+		jQuery('.content-tabs_box').mCustomScrollbar({
+			axis: "x",
+			horizontalScroll: true,
+			advanced:{
+				autoExpandHorizontalScroll:true
+			}
+		});		
+	}
 
 	jQuery(document).on('click', '.box__search', function(event) {
 		event.preventDefault();
@@ -471,4 +484,17 @@ function setupMagazineScroll() {
     }
     $(window).resize(resetSlider);
     displaySlider();
+}
+
+function caculationHeight() {
+	var heightNews = 0;
+
+	jQuery('.box__social .item').height('auto');
+	for (var i = 0; i < jQuery('.box__social .item').length; i++) {
+		if (jQuery('.box__social .item:eq(' + i + ')').height() > heightNews){
+			heightNews = jQuery('.box__social .item:eq(' + i + ')').height();
+		}		
+	}
+	jQuery('.box__social .item').height(heightNews);	
+	jQuery('.box__social .item__main').height(heightNews);	
 }
