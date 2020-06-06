@@ -121,6 +121,42 @@ jQuery(document).ready(function() {
         jQuery(".fr-loading").delay(1000).fadeOut("slow");
     });
 
+    jQuery(".content__news.content__news__style1 .item").slice(0, 8).show();
+	jQuery(document).on('click', '.content__news.content__news__style1 .box__news__more', function(event) {
+		event.preventDefault();
+        jQuery(".content__news.content__news__style1 .item:hidden").slice(0, 4).slideDown();
+        if (jQuery(".content__news.content__news__style1 .item:hidden").length == 0) {
+            jQuery(this).fadeOut('slow');
+        }
+        jQuery('html,body').animate({
+            scrollTop: jQuery(this).offset().top - 90
+        }, 1500);
+    });
+
+    jQuery(".content__news.content__news__style2 .item").slice(0, 5).show();
+	jQuery(document).on('click', '.content__news.content__news__style2 .box__news__more', function(event) {
+		event.preventDefault();
+        jQuery(".content__news.content__news__style2 .item:hidden").slice(0, 3).slideDown();
+        if (jQuery(".content__news.content__news__style2 .item:hidden").length == 0) {
+            jQuery(this).fadeOut('slow');
+        }
+        jQuery('html,body').animate({
+            scrollTop: jQuery(this).offset().top - 90
+        }, 1500);
+    });
+
+    jQuery(".content__news.content__news__style3 .item").slice(0, 12).show();
+	jQuery(document).on('click', '.content__news.content__news__style3 .box__news__more', function(event) {
+		event.preventDefault();
+        jQuery(".content__news.content__news__style3 .item:hidden").slice(0, 3).slideDown();
+        if (jQuery(".content__news.content__news__style3 .item:hidden").length == 0) {
+            jQuery(this).fadeOut('slow');
+        }
+        jQuery('html,body').animate({
+            scrollTop: jQuery(this).offset().top - 90
+        }, 1500);
+    });
+
     jQuery("[data-fancybox]").fancybox({});
 
     if(jQuery('.countnumber').length > 0){
@@ -432,6 +468,30 @@ jQuery(document).ready(function() {
     if (jQuery(".slider-book").length > 0) {
         setupMagazineScroll();
     }
+
+    jQuery('.content-news-style2 .item__left').slick({
+	  	arrows: false,
+	  	asNavFor: '.content-news-style2 .item__right',
+	    // fade: true,
+		cssEase: 'linear',
+		swipe: false,
+		speed: 1000,
+		centerMode: true,
+		variableWidth: true,
+		infinite: true,
+	    autoplay: false,
+	});
+	jQuery('.content-news-style2 .item__right').slick({
+	  	asNavFor: '.content-news-style2 .item__left',
+		prevArrow: '<div class="tw__prev"><span></span></div>',
+	    nextArrow: '<div class="tw__next"><span></span></div>',
+	    fade: true,
+		cssEase: 'linear',
+	    swipe: false,
+	    autoplay: false,
+		autoplaySpeed: 5000,
+		speed: 1000,
+	});
 });
 
 function header(){
