@@ -44,6 +44,7 @@ jQuery(document).ready(function() {
 		});		
 	}
 
+	// Search
 	jQuery(document).on('click', '.box__search', function(event) {
 		event.preventDefault();
 		jQuery(this).parent().find('.form__search').addClass('open');
@@ -54,6 +55,7 @@ jQuery(document).ready(function() {
 		jQuery(this).closest('.form__search').removeClass('open');
 	});
 
+	// Menu
 	jQuery('.toggle-menu i').click(function(event) {
 		event.stopPropagation();
 		if(jQuery('#header-responsive-responsive .right').hasClass('active')){
@@ -121,6 +123,27 @@ jQuery(document).ready(function() {
         jQuery(".fr-loading").delay(1000).fadeOut("slow");
     });
 
+    // jQuery(document).on('click', '.menu__close', function(event) {
+    // 	event.preventDefault();
+    // 	window.history.back();
+    // });
+
+    // Hover Menu
+    jQuery(document).on('mouseover', '.content-menus .menu__parent li', function(event) {
+    	event.preventDefault();
+    	var index = jQuery(this).index();
+
+    	jQuery('.content-menus .menu__parent > li').removeClass('active');
+    	jQuery(this).addClass('active');
+
+    	jQuery('.content-menus .menu__child > li').removeClass('active');
+    	jQuery('.content-menus .menu__child > li:eq(' + index + ')').addClass('active');
+
+    	jQuery('.content-menus .box__bgs .item').removeClass('active');
+    	jQuery('.content-menus .box__bgs .item:eq(' + index + ')').addClass('active');
+    });
+
+    // Slice News
     jQuery(".content__news.content__news__style1 .item").slice(0, 8).show();
 	jQuery(document).on('click', '.content__news.content__news__style1 .box__news__more', function(event) {
 		event.preventDefault();
