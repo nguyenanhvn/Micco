@@ -152,7 +152,7 @@ jQuery(document).ready(function() {
             jQuery(this).fadeOut('slow');
         }
         jQuery('html,body').animate({
-            scrollTop: jQuery(this).offset().top - 90
+            scrollTop: jQuery(this).offset().top - 150
         }, 1500);
     });
 
@@ -177,6 +177,18 @@ jQuery(document).ready(function() {
         }
         jQuery('html,body').animate({
             scrollTop: jQuery(this).offset().top - 90
+        }, 1500);
+    });
+
+    jQuery(".content__news.content__news__media .items__col__2 .item").slice(0, 3).show();
+	jQuery(document).on('click', '.content__news.content__news__media .items__col__2 .box__news__more', function(event) {
+		event.preventDefault();
+        jQuery(".content__news.content__news__media .items__col__2 .item:hidden").slice(0, 2).slideDown();
+        if (jQuery(".content__news.content__news__media .items__col__2 .item:hidden").length == 0) {
+            jQuery(this).fadeOut('slow');
+        }
+        jQuery('html,body').animate({
+            scrollTop: jQuery(this).offset().top - 150
         }, 1500);
     });
 
