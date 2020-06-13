@@ -685,6 +685,19 @@
 					left: 0;
 					bottom: 0;
 				}
+				&:after{
+					content: '';
+					display: block;
+				  	background-image: -moz-linear-gradient( 240deg, rgba(0,0,0,0) 0%, rgb(0,0,0) 100%);
+				  	background-image: -webkit-linear-gradient( 240deg, rgba(0,0,0,0) 0%, rgb(0,0,0) 100%);
+				  	background-image: -ms-linear-gradient( 240deg, rgba(0,0,0,0) 0%, rgb(0,0,0) 100%);
+				  	opacity: 0.702;
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					top: 0;
+					right: 0;
+				}
 				.container{
 					height: calc(100vh - 101px - 180px);
 				}
@@ -831,6 +844,7 @@
 			    		height: 100%;
 						transition: all 0.3s ease-out 0s;
 						-webkit-transition: all 0.3s ease-out 0s; 
+						background: no-repeat center /cover;
 			    		&:after{
 			    			content: "";
 						    position: absolute;
