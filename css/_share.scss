@@ -125,7 +125,7 @@
 		font-size: 14px;
 		padding-top: 101px;
 		// font-weight: 300;
-		background: #8e8e8e;
+		background: #fff;
 		color: #000;
 		line-height: 1.6;
 		overflow-x: hidden;
@@ -147,6 +147,11 @@
 		list-style-type: none;
 		padding: 0;
 		margin: 0;
+	}
+	.vc_empty_space{
+		display: block;
+		float: left;
+		width: 100%;
 	}
 	.link-more{
 		float: left;
