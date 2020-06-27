@@ -45,15 +45,15 @@ jQuery(document).ready(function() {
 	}
 
 	// Search
-	jQuery(document).on('click', '.box__search', function(event) {
-		event.preventDefault();
-		jQuery(this).parent().find('.form__search').addClass('open');
-	});
+	// jQuery(document).on('click', '.box__search', function(event) {
+	// 	event.preventDefault();
+	// 	jQuery(this).parent().find('.form__search').addClass('open');
+	// });
 
-	jQuery(document).on('click', '.form__close', function(event) {
-		event.preventDefault();
-		jQuery(this).closest('.form__search').removeClass('open');
-	});
+	// jQuery(document).on('click', '.form__close', function(event) {
+	// 	event.preventDefault();
+	// 	jQuery(this).closest('.form__search').removeClass('open');
+	// });
 
 	// Menu
 	jQuery('.toggle-menu i').click(function(event) {
@@ -203,7 +203,7 @@ jQuery(document).ready(function() {
 		  	jQuery({ countNum: jQuery('.countnumber > li:eq(0) .circle span').text()}).animate({
 		    	countNum: jQuery('.countnumber > li:eq(0)').attr('data-count')
 		  	} , {
-			    duration: 4000,
+			    duration: 2000,
 			    easing:'linear',
 			    step: function() {
 			      	jQuery('.countnumber > li:eq(0) .circle span').text(Math.floor(this.countNum));
@@ -216,7 +216,7 @@ jQuery(document).ready(function() {
 		  	jQuery({ countNum1: jQuery('.countnumber > li:eq(1) .circle span').text()}).animate({
 		    	countNum1: jQuery('.countnumber > li:eq(1)').attr('data-count')
 		  	} , {
-			    duration: 4000,
+			    duration: 2000,
 			    easing:'linear',
 			    step: function() {
 			      	jQuery('.countnumber > li:eq(1) .circle span').text(Math.floor(this.countNum1));
@@ -229,7 +229,7 @@ jQuery(document).ready(function() {
 		  	jQuery({ countNum2: jQuery('.countnumber > li:eq(2) .circle span').text()}).animate({
 		    	countNum2: jQuery('.countnumber > li:eq(2)').attr('data-count')
 		  	} , {
-			    duration: 4000,
+			    duration: 2000,
 			    easing:'linear',
 			    step: function() {
 			      	jQuery('.countnumber > li:eq(2) .circle span').text(Math.floor(this.countNum2));
@@ -242,7 +242,7 @@ jQuery(document).ready(function() {
 		  	jQuery({ countNum3: jQuery('.countnumber > li:eq(3) .circle span').text()}).animate({
 		    	countNum3: jQuery('.countnumber > li:eq(3)').attr('data-count')
 		  	} , {
-			    duration: 4000,
+			    duration: 2000,
 			    easing:'linear',
 			    step: function() {
 			      	jQuery('.countnumber > li:eq(3) .circle span').text(Math.floor(this.countNum3));
@@ -255,7 +255,7 @@ jQuery(document).ready(function() {
 		  	jQuery({ countNum3: jQuery('.countnumber > li:eq(4) .circle span').text()}).animate({
 		    	countNum3: jQuery('.countnumber > li:eq(4)').attr('data-count')
 		  	} , {
-			    duration: 4000,
+			    duration: 2000,
 			    easing:'linear',
 			    step: function() {
 			      	jQuery('.countnumber > li:eq(4) .circle span').text(Math.floor(this.countNum3));
@@ -272,7 +272,7 @@ jQuery(document).ready(function() {
 		  	jQuery({ countNum: jQuery('.countnumber > li:eq(0) .circle span').text()}).animate({
 		    	countNum: jQuery('.countnumber > li:eq(0)').attr('data-count')
 		  	} , {
-			    duration: 4000,
+			    duration: 2000,
 			    easing:'linear',
 			    step: function() {
 			      	jQuery('.countnumber > li:eq(0) .circle span').text(Math.floor(this.countNum));
@@ -285,7 +285,7 @@ jQuery(document).ready(function() {
 		  	jQuery({ countNum1: jQuery('.countnumber > li:eq(1) .circle span').text()}).animate({
 		    	countNum1: jQuery('.countnumber > li:eq(1)').attr('data-count')
 		  	} , {
-			    duration: 4000,
+			    duration: 2000,
 			    easing:'linear',
 			    step: function() {
 			      	jQuery('.countnumber > li:eq(1) .circle span').text(Math.floor(this.countNum1));
@@ -298,7 +298,7 @@ jQuery(document).ready(function() {
 		  	jQuery({ countNum2: jQuery('.countnumber > li:eq(2) .circle span').text()}).animate({
 		    	countNum2: jQuery('.countnumber > li:eq(2)').attr('data-count')
 		  	} , {
-			    duration: 4000,
+			    duration: 2000,
 			    easing:'linear',
 			    step: function() {
 			      	jQuery('.countnumber > li:eq(2) .circle span').text(Math.floor(this.countNum2));
@@ -311,7 +311,7 @@ jQuery(document).ready(function() {
 		  	jQuery({ countNum3: jQuery('.countnumber > li:eq(3) .circle span').text()}).animate({
 		    	countNum3: jQuery('.countnumber > li:eq(3)').attr('data-count')
 		  	} , {
-			    duration: 4000,
+			    duration: 2000,
 			    easing:'linear',
 			    step: function() {
 			      	jQuery('.countnumber > li:eq(3) .circle span').text(Math.floor(this.countNum3));
@@ -430,6 +430,41 @@ jQuery(document).ready(function() {
 	        autoplay: true,
 		  	dragEndSpeed: 1500,
 	        navText: ['<div class="tw-prev"></div>','<div class="tw-next"></div>'],
+	    }); 	
+	}
+
+	if(jQuery('.slider__achievements').length > 0){
+		jQuery('.slider__achievements').owlCarousel({
+	        loop: true,
+	        dots: false,
+	        margin: 11,
+	        nav: true,
+			mouseDrag: true,
+		    touchDrag: true,
+		  	autoplaySpeed: 1500,
+		  	navSpeed: 1500,
+		  	dotsSpeed: 1500,
+	        autoplay: true,
+		  	dragEndSpeed: 1500,
+	        navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],  
+			responsive:{
+				0:{
+		        	items: 2,
+					mouseDrag: true,
+				    touchDrag: true,
+				},
+		        450:{
+		        	items: 3,
+					mouseDrag: true,
+				    touchDrag: true,
+		        },
+		        767:{
+		        	items: 4,
+		        },
+		        1200:{
+		        	items: 5,
+		        }
+		    },    
 	    }); 	
 	}
 
@@ -560,7 +595,7 @@ jQuery(document).ready(function() {
 	    }); 	
 	}
 
-
+// Magazine
     if (jQuery(".slider-book").length > 0) {
         setupMagazineScroll();
     }
@@ -587,6 +622,55 @@ jQuery(document).ready(function() {
 	    autoplay: false,
 		autoplaySpeed: 5000,
 		speed: 1000,
+	});
+
+// Timeline slider
+    jQuery('.slider__timeline').on('beforeChange', function(e, slick, currentSlide, nextSlide) {
+        var count = jQuery('.slider__timeline .item').length;
+		jQuery('.box__timeline__progress .timeline__progress__cursor').css('transform','translateX(calc((100% / '+ count +') * '+nextSlide+')');
+    });
+	jQuery('.slider__years').slick({
+	  	dots: false,
+	  	infinite: false,
+    	slidesToShow: 1,
+    	speed: 500,
+    	fade: true,
+    	swipe: false,
+		cssEase: 'linear',
+		asNavFor: '.slider__timeline, .slider__paragraph',
+	});
+	jQuery('.slider__paragraph').slick({
+	  	dots: false,
+	  	infinite: false,
+    	slidesToShow: 1,
+    	speed: 900,
+    	fade: true, 	
+    	swipe: false,
+		asNavFor: '.slider__timeline, .slider__years',
+	});
+	jQuery('.slider__timeline').slick({
+	  	asNavFor: '.slider__years, .slider__paragraph',
+	  	dots: false,
+	  	infinite: false,
+	  	speed: 300,
+	  	centerMode: true,
+    	slidesToShow: 5,
+    	prevArrow: jQuery('.timeline__nav__prev'),
+	    nextArrow: jQuery('.timeline__nav__next'),
+	  	responsive: [
+	    {
+	      breakpoint: 1320,
+	      settings: {
+	        slidesToShow: 3,
+	      }
+	    },
+	    {
+	      breakpoint: 767,
+	      settings: {
+	        slidesToShow: 1,
+	      }
+	    }
+	  ]
 	});
 });
 
