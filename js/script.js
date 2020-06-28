@@ -123,10 +123,32 @@ jQuery(document).ready(function() {
         jQuery(".fr-loading").delay(1000).fadeOut("slow");
     });
 
-    // jQuery(document).on('click', '.menu__close', function(event) {
-    // 	event.preventDefault();
-    // 	window.history.back();
-    // });
+	if(jQuery(window).width() > 992){	
+		jQuery(".content-subsidiaries .box__left img").sticky({ 
+			topSpacing: 101,
+			bottomSpacing: jQuery('#footer').height() + 101,
+			getWidthFrom: '50'
+		});
+	};
+
+	jQuery(window).resize(function(event) {
+		jQuery(".content-subsidiaries .box__left img").sticky('update');
+
+		if(jQuery(window).width() > 992){	
+			jQuery(".content-subsidiaries .box__left img").sticky({ 
+				topSpacing: 101,
+				bottomSpacing: jQuery('#footer').height() + 101,
+				getWidthFrom: '50'
+			});
+		} else {
+	    	jQuery(".content-subsidiaries .box__left img").unstick();
+		}
+	});	
+
+    jQuery(document).on('click', '.menu__close', function(event) {
+    	event.preventDefault();
+    	window.history.back();
+    });
 
     // Hover Menu
     jQuery(document).on('mouseover', '.content-menus .menu__parent li', function(event) {
@@ -603,14 +625,12 @@ jQuery(document).ready(function() {
     jQuery('.content-news-style2 .item__left').slick({
 	  	arrows: false,
 	  	asNavFor: '.content-news-style2 .item__right',
-	    // fade: true,
-		cssEase: 'linear',
-		swipe: false,
 		speed: 1000,
 		centerMode: true,
 		variableWidth: true,
 		infinite: true,
 	    autoplay: false,
+	    slidesToShow: 1,
 	});
 	jQuery('.content-news-style2 .item__right').slick({
 	  	asNavFor: '.content-news-style2 .item__left',
