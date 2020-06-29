@@ -165,6 +165,20 @@ jQuery(document).ready(function() {
     	jQuery('.content-menus .box__bgs .item:eq(' + index + ')').addClass('active');
     });
 
+    // Slice Pra Listing    
+    jQuery(".content-pralisting .items .item").slice(0, 4).show();
+	jQuery(document).on('click', '.content-pralisting .box__pralisting__more', function(event) {
+		event.preventDefault();
+        jQuery(".content-pralisting .items .item:hidden").slice(0, 4).slideDown();
+        if (jQuery(".content-pralisting .items .item:hidden").length == 0) {
+            jQuery(this).fadeOut('slow');
+        }
+        jQuery('html,body').animate({
+            scrollTop: jQuery(this).offset().top - 150
+        }, 1500);
+    });
+
+
     // Slice News
     jQuery(".content__news.content__news__style1 .item").slice(0, 8).show();
 	jQuery(document).on('click', '.content__news.content__news__style1 .box__news__more', function(event) {
@@ -435,6 +449,108 @@ jQuery(document).ready(function() {
 		        }
 	      	}
 	  	});
+	}
+
+	if(jQuery('.pramore__slider__desktop').length > 0){
+		jQuery('.pramore__slider__desktop').owlCarousel({
+	        loop: true,
+	        dots: false,
+	        margin: 10,
+	        items:1,
+	        nav: true,
+			mouseDrag: false,
+		    touchDrag: false,
+		  	autoplaySpeed: 1500,
+		  	navSpeed: 1500,
+		  	dotsSpeed: 1500,
+	        autoplay: true,
+		  	dragEndSpeed: 1500,
+	        navText: ['<div class="tw-prev"><i class="fa fa-angle-left"></i></div>','<div class="tw-next"><i class="fa fa-angle-right"></i></div>'],
+		    onInitialized: setOwlStageHeight,
+		    onResized: setOwlStageHeight,
+		    onTranslated: setOwlStageHeight,  
+			responsive:{
+				0:{
+		        	onInitialized: setOwlStageHeight,
+				    onResized: setOwlStageHeight,
+				    onTranslated: setOwlStageHeight,  
+				},
+		        450:{
+		        	onInitialized: setOwlStageHeight,
+				    onResized: setOwlStageHeight,
+				    onTranslated: setOwlStageHeight,  
+		        },
+		        767:{
+		        	onInitialized: setOwlStageHeight,
+				    onResized: setOwlStageHeight,
+				    onTranslated: setOwlStageHeight,  
+		        },
+		        1200:{
+		        	onInitialized: setOwlStageHeight,
+				    onResized: setOwlStageHeight,
+				    onTranslated: setOwlStageHeight,  
+		        }
+		    },    
+	    }); 
+	    function setOwlStageHeight(event) {
+		    var maxHeight = 0;
+		    jQuery('.pramore__slider__desktop .owl-item').each(function () { // LOOP THROUGH ACTIVE ITEMS
+		        var thisHeight = parseInt( jQuery(this).height() );
+		        maxHeight=(maxHeight>=thisHeight?maxHeight:thisHeight);
+		    });
+		    jQuery('.pramore__slider__desktop .owl-item').css('height', maxHeight);
+		}		
+	}
+
+	if(jQuery('.pramore__slider__mobile').length > 0){
+		jQuery('.pramore__slider__mobile').owlCarousel({
+	        loop: true,
+	        dots: false,
+	        margin: 10,
+	        items:1,
+	        nav: true,
+			mouseDrag: false,
+		    touchDrag: false,
+		  	autoplaySpeed: 1500,
+		  	navSpeed: 1500,
+		  	dotsSpeed: 1500,
+	        autoplay: true,
+		  	dragEndSpeed: 1500,
+	        navText: ['<div class="tw-prev"><i class="fa fa-angle-left"></i></div>','<div class="tw-next"><i class="fa fa-angle-right"></i></div>'],
+		    onInitialized: setOwlStageHeight,
+		    onResized: setOwlStageHeight,
+		    onTranslated: setOwlStageHeight,  
+			responsive:{
+				0:{
+		        	onInitialized: setOwlStageHeight,
+				    onResized: setOwlStageHeight,
+				    onTranslated: setOwlStageHeight,  
+				},
+		        450:{
+		        	onInitialized: setOwlStageHeight,
+				    onResized: setOwlStageHeight,
+				    onTranslated: setOwlStageHeight,  
+		        },
+		        767:{
+		        	onInitialized: setOwlStageHeight,
+				    onResized: setOwlStageHeight,
+				    onTranslated: setOwlStageHeight,  
+		        },
+		        1200:{
+		        	onInitialized: setOwlStageHeight,
+				    onResized: setOwlStageHeight,
+				    onTranslated: setOwlStageHeight,  
+		        }
+		    },    
+	    }); 
+	    function setOwlStageHeight(event) {
+		    var maxHeight = 0;
+		    jQuery('.pramore__slider__mobile .owl-item').each(function () { // LOOP THROUGH ACTIVE ITEMS
+		        var thisHeight = parseInt( jQuery(this).height() );
+		        maxHeight=(maxHeight>=thisHeight?maxHeight:thisHeight);
+		    });
+		    jQuery('.pramore__slider__mobile .owl-item').css('height', maxHeight);
+		}		
 	}
 
 	if(jQuery('.news__slider').length > 0){
