@@ -43,6 +43,17 @@ jQuery(document).ready(function() {
 			}
 		});		
 	}
+	
+	if(jQuery('.short__info__scroll').length > 0){
+		jQuery('.short__info__scroll').mCustomScrollbar({
+			axis: "y",
+			theme:"dark"
+			// horizontalScroll: true,
+			// advanced:{
+			// 	autoExpandHorizontalScroll:true
+			// }
+		});		
+	}
 
 	// Search
 	// jQuery(document).on('click', '.box__search', function(event) {
@@ -571,6 +582,57 @@ jQuery(document).ready(function() {
 	    }); 	
 	}
 
+	if(jQuery('.short__slider').length > 0){
+		jQuery('.short__slider').owlCarousel({
+	        loop: true,
+	        dots: false,
+	        margin: 0,
+	        items:1,
+	        nav: true,
+			mouseDrag: false,
+		    touchDrag: false,
+		  	autoplaySpeed: 1500,
+		  	navSpeed: 1500,
+		  	dotsSpeed: 1500,
+	        autoplay: true,
+		  	dragEndSpeed: 1500,
+	        navText: ['<div class="tw__prev"><i class="fa fa-angle-left"></i></div>','<div class="tw__next"><i class="fa fa-angle-right"></i></div>'],
+	    }); 	
+	}
+
+	if(jQuery('.gallery__slider').length > 0){
+		jQuery('.gallery__slider').owlCarousel({
+	        loop: true,
+	        dots: false,
+	        margin: 15,
+	        nav: true,
+	        items: 3,
+			mouseDrag: true,
+		    touchDrag: true,
+		  	autoplaySpeed: 1500,
+		  	navSpeed: 1500,
+		  	dotsSpeed: 1500,
+	        autoplay: true,
+	        // center: true,
+		  	dragEndSpeed: 1500,
+		  	// autoWidth:true,
+	        navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],  
+			responsive:{
+				0:{
+		        	items: 1,
+					mouseDrag: true,
+				    touchDrag: true,
+				},
+		        767:{
+		        	items: 2,
+		        },
+		        1200:{
+		        	items: 3,
+		        }
+		    },  
+	    }); 	
+	}
+
 	if(jQuery('.slider__achievements').length > 0){
 		jQuery('.slider__achievements').owlCarousel({
 	        loop: true,
@@ -807,6 +869,53 @@ jQuery(document).ready(function() {
 	      }
 	    }
 	  ]
+	});
+
+
+	// Cache selectors
+	var lastId,
+	    topMenu = jQuery(".content__information__tabs ul"),
+	    topMenuHeight = 60,
+	    // All list items
+	    menuItems = topMenu.find("a"),
+	    // Anchors corresponding to menu items
+	    scrollItems = menuItems.map(function(){
+		    var item = jQuery(jQuery(this).attr("href"));
+		    if (item.length) { return item; }
+	    });
+
+	// Bind click handler to menu items
+	// so we can get a fancy scroll animation
+	menuItems.click(function(e){
+	  var href = jQuery(this).attr("href"),
+	      offsetTop = href === "#" ? 0 : jQuery(href).offset().top-130+1;
+	  jQuery('html, body').stop().animate({ 
+	      scrollTop: offsetTop
+	  }, 300);
+	  e.preventDefault();
+	});
+
+	// Bind to scroll
+	jQuery(window).scroll(function(){
+	   // Get container scroll position
+	   var fromTop = jQuery(this).scrollTop()+130;
+	   
+	   // Get id of current scroll item
+	   var cur = scrollItems.map(function(){
+	     if (jQuery(this).offset().top < fromTop)
+	       return this;
+	   });
+	   // Get the id of the current element
+	   cur = cur[cur.length-1];
+	   var id = cur && cur.length ? cur[0].id : "";
+	   
+	   if (lastId !== id) {
+	       lastId = id;
+	       // Set/remove active class
+	       menuItems
+	         .parent().removeClass("active")
+	         .end().filter("[href='#"+id+"']").parent().addClass("active");
+	   }                   
 	});
 });
 
