@@ -633,6 +633,41 @@ jQuery(document).ready(function() {
 	    }); 	
 	}
 
+	if(jQuery('.tab__scroll__slider .tab__slider').length > 0){
+		jQuery('.tab__scroll__slider .tab__slider').owlCarousel({
+	        loop: false,
+	        dots: false,
+	        margin: 0,
+	        nav: true,
+			mouseDrag: false,
+		    touchDrag: false,
+		  	navSpeed: 1500,
+		  	dotsSpeed: 1500,
+		  	dragEndSpeed: 1500,
+	        navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+			responsive:{
+				0:{
+		        	items: 2,
+				},
+		        450:{
+		        	items: 4,
+		        },
+		        767:{
+		        	items: 6,
+		        },
+		        1200:{
+		        	items: 9,
+		        }
+		    },    
+	    }); 	
+	    jQuery('.tab__scroll__slider .tab__slider .owl-item.active:eq(0) .item').addClass('active');
+
+	    jQuery(document).on('click', '.tab__scroll__slider .tab__slider .item', function() {
+	    	jQuery('.tab__scroll__slider .tab__slider .item').removeClass('active');
+	    	jQuery(this).addClass('active');
+	    });
+	}
+
 	if(jQuery('.slider__achievements').length > 0){
 		jQuery('.slider__achievements').owlCarousel({
 	        loop: true,
