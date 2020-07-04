@@ -7912,9 +7912,19 @@
 				.box__sidebar__menu{
 					li{
 						display: block;
+						float: left;
+						width: 100%;
 						font-size: 14px;
-						padding-left: 15px;
 						position: relative;
+						margin: 9px 0;
+						padding-left: 15px;
+						color: #555555;
+						cursor: pointer;
+						pointer-events: auto;
+						@include transition;
+						&:hover{
+							color: #000;
+						}
 						&:before{
 							content: '';
 							display: block;
@@ -7923,28 +7933,17 @@
 							background: url(../images/arrow-active.png) no-repeat center /cover;
 							position: absolute;
 							left: 0;
-							top: 19px;
+							top: 10px;
 							opacity: 0;
 							visibility: hidden;
 							@include transition;
 						}
 						&.current_page_item {
+							color: $color;
+							font-size: 18px;
 							&:before{
 								opacity: 1;
 								visibility: visible;
-							}
-							a{
-								color: $color;
-								font-size: 18px;
-							}
-						}
-						a{
-							display: block;
-							padding: 9px 0;
-							color: #555555;
-							@include transition;
-							&:hover{
-								color: #000;
 							}
 						}
 					}
@@ -8255,9 +8254,6 @@
 				}
 			}
 			.slider__timeline{
-				// .item[data-slick-index^="0"]{
-				// 	background: #000;
-				// }
 				.item{
 					outline: none;
 					padding: 28px 0;
@@ -8274,7 +8270,7 @@
 					}
 					.item__timelines{
 					    left: -294.5px;
-					    width: 100%;
+					    width: calc(100% + 150px);
 					    height: 2px;
 					    position: absolute;
 					    z-index: -1;
@@ -8447,6 +8443,7 @@
 	@media (max-width: 1320px){
 		section.content-history .box__bottom .slider__timeline .item .item__timelines{
 			left: -190px;
+			width: calc(100% + 50px);
 		}
 	}
 
@@ -8460,9 +8457,6 @@
 			width: 86px;
 			height: 86px;
 		}
-		// section.content-history .box__bottom .slider__timeline.slick-slider .slick-list{
-		// 	padding: 0 25% !important;
-		// }
 	}
 
 /* Content Subsidiaries */
