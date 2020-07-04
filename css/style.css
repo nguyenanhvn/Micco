@@ -9269,6 +9269,9 @@ section.content-susdetail {
   section.content-susdetail .box__sidebar {
     width: 100%;
     margin: 40px 0 0; } }
+@media (max-width: 450px) {
+  section.content-susdetail .box__detail .name {
+    font-size: 24px; } }
 /*Footer*/
 #footer {
   float: left;

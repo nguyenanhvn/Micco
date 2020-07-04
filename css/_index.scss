@@ -10868,6 +10868,12 @@
 		}
 	}
 
+	@media (max-width: 450px){
+		section.content-susdetail .box__detail .name{
+			font-size: 24px;
+		}
+	}
+
 /*Footer*/
 	#footer{
 		float: left;
