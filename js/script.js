@@ -836,25 +836,46 @@ jQuery(document).ready(function() {
     }
 
     jQuery('.content-news-style2 .item__left').slick({
-	  	arrows: false,
-	  	asNavFor: '.content-news-style2 .item__right',
+	  	asNavFor: '.content-news-style2 .item__right, .content-news-style2 .item__information',
+		prevArrow: '<div class="tw__prev"><i class="fa fa-angle-left"></i></div>',
+	    nextArrow: '<div class="tw__next"><i class="fa fa-angle-right"></i></div>',
 		speed: 1000,
-		centerMode: true,
-		variableWidth: true,
+		// centerMode: true,
 		infinite: true,
 	    autoplay: false,
 	    slidesToShow: 1,
+	    initialSlide: 1,
+	  	arrows: false,
+	  	responsive: [
+	    {
+	      breakpoint: 450,
+	      settings: {
+	  		arrows: true,
+	      }
+	    }
+	    ]
 	});
 	jQuery('.content-news-style2 .item__right').slick({
-	  	asNavFor: '.content-news-style2 .item__left',
-		prevArrow: '<div class="tw__prev"><span></span></div>',
-	    nextArrow: '<div class="tw__next"><span></span></div>',
+	  	asNavFor: '.content-news-style2 .item__left, .content-news-style2 .item__information',
+		prevArrow: '<div class="tw__prev"><i class="fa fa-angle-left"></i></div>',
+	    nextArrow: '<div class="tw__next"><i class="fa fa-angle-right"></i></div>',
 	    fade: true,
-		cssEase: 'linear',
 	    swipe: false,
 	    autoplay: false,
 		autoplaySpeed: 5000,
 		speed: 1000,
+	    initialSlide: 1,
+	});
+	jQuery('.content-news-style2 .item__information').slick({
+	  	asNavFor: '.content-news-style2 .item__left, .content-news-style2 .item__right',
+	    fade: true,
+		// cssEase: 'linear',
+	    swipe: false,
+	    autoplay: false,
+		autoplaySpeed: 5000,
+		speed: 1000,
+		arrows: false,
+	    initialSlide: 1,
 	});
 
 // Timeline slider
